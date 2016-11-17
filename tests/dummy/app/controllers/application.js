@@ -3,9 +3,9 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   filterByTableName: function(filterText) {
-    return function(item, index, enumerable) {
+    return function(item) {
       return item.attributes['name'].toLowerCase().indexOf(filterText.toLowerCase()) !== -1;
-    }
+    };
   },
 
   optionlist:[
@@ -17,10 +17,10 @@ export default Ember.Controller.extend({
 
   actions: {
     createTable(){
-      console.log('I am in createTable function.')
+      console.log('I am in createTable function.');
     },
     createView(){
-      console.log('I am in createView function.')
+      console.log('I am in createView function.');
     },
   }
 });

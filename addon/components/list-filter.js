@@ -7,7 +7,12 @@ export default Ember.Component.extend({
   placeholder: '',
   labelName:'',
   modelList:null,
+  isFilterEnable:false,
   filterText: '',
+  hasOptionlist:Ember.computed('optionlist', function(){
+    return this.get('optionlist').length > 0;
+  }),
+
   optionlist: Ember.A(),
 
   filteredList: Ember.computed('filterText', 'modelList.@each', function() {
@@ -16,8 +21,8 @@ export default Ember.Component.extend({
   }),
 
   click(event){
-    if($(event.target).attr('class') === "list-group-item"){
-      this.send('highlightListItem', $(event.target), this.$().find('a.list-group-item'));
+    if(Ember.$(event.target).attr('class') === "list-group-item"){
+      this.send('highlightListItem', Ember.$(event.target), this.$().find('a.list-group-item'));
     }
   },
 
@@ -28,8 +33,8 @@ export default Ember.Component.extend({
 
     highlightListItem(targetAnchor, allAnchors ){
       allAnchors.each(function(index, item){
-        $(item).removeClass('active');
-      })
+        Ember.$(item).removeClass('active');
+      });
       targetAnchor.addClass('active');
     }
   }

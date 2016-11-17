@@ -4,26 +4,30 @@
   </div>
   <div class="pull-right" style="">
     <div class="dropdown pull-right">
-      {{#vertical-optionlist optionlist=optionlist }}
-        <ul class="dropdown-menu">
-          {{#each optionlist as |item|}}
-            <li><a href="javascript:void(0)" {{action 'goToOption' item }}> {{item.label}}</a></li>
-          {{/each}}
-        </ul>
-      {{/vertical-optionlist}}
+      {{#if hasOptionlist}}
+        {{#vertical-optionlist optionlist=optionlist }}
+          <ul class="dropdown-menu">
+            {{#each optionlist as |item|}}
+              <li><a href="javascript:void(0)" {{action 'goToOption' item }}> {{item.label}}</a></li>
+            {{/each}}
+          </ul>
+        {{/vertical-optionlist}}
+      {{/if}}
     </div>
   </div>
 </div>
-
-<div class="custom-search-input">
-  <div class="input-group" style="width: 100%">
-    {{input value=filterText class="search-query form-control" placeholder=placeholder}}
-    <span class="input-group-btn ">
+{{#if isFilterEnable}}
+  <div class="custom-search-input">
+    <div class="input-group" style="width: 100%">
+      {{input value=filterText class="search-query form-control" placeholder=placeholder}}
+      <span class="input-group-btn ">
         <button class="btn btn-danger" type="button">
           <span class=" glyphicon glyphicon-search"></span>
         </button>
       </span>
+    </div>
   </div>
-</div>
+{{/if}}
+
 
 {{yield filteredList}}
