@@ -1,0 +1,1 @@
+export { default } from 'ember-ambari-ui-components/components/say-hello';

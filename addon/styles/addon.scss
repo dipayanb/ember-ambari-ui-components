@@ -1,0 +1,115 @@
+
+.vertical-optionlist {
+  * {
+    border-radius: 0;
+  }
+
+  .dropdown-menu {
+    top:30px;
+  }
+
+  .dropdown-menu > li > a:hover,
+  .dropdown-menu > li > a:focus {
+    background-color: #DBEEF4;
+  }
+
+  .dropdown-toggle {
+    position: absolute;
+    right: 0;
+    z-index: 9999;
+    border:none;
+  }
+
+  .btn-default.focus,
+  .btn-default:hover,
+  .btn-default.active,
+  .btn-default.active:hover,
+  .btn-default:active.focus {
+    background-color: #FFFFFF;
+    border: none;
+    border-color:rgba(0,0,0,0.14902);
+    border-bottom: none;
+  }
+}
+
+.vertical-optionlist.open {
+  .dropdown-toggle.btn-default,
+  .dropdown-toggle.btn-default:hover,
+  .dropdown-toggle.btn-default:focus {
+    background-color: #FFFFFF;
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 0.14902);
+    border-bottom: none;
+  }
+}
+
+.list-filter{
+  padding-top:10px;
+  padding-bottom:10px;
+
+  *,.list-group-item {
+    border-radius: 0;
+  }
+
+  .header{
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    border-top: 1px solid #DDD;
+    padding:5px; height:40px;
+  }
+
+  .custom-search-input{
+    border-right: 1px solid #ddd;
+    .search-query {
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      height: 40px;
+    }
+    .input-group-btn {
+      position: absolute;
+      right: 25px;
+      top: 5px;
+    }
+    button {
+      border: 0;
+      background: none;
+      padding: 2px 5px;
+      margin-top: 2px;
+      position: relative;
+      left: -10px;
+      margin-bottom: 0;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      color:#000;
+    }
+  }
+
+  .search-query:focus + button {
+    z-index: 3;
+  }
+
+  ul.list-group {
+    list-style: none;
+    max-height:calc(90vh - 100px);
+    overflow-y: scroll;
+    li{
+      position: relative;
+      a.list-group-item {
+        border-top: none;
+      }
+      a.list-group-item.active,
+      a.list-group-item.active:hover,
+      a.list-group-item.active:focus {
+        background-color: #FEF5DD;
+        color: #000;
+        border-color: #DDD;
+      }
+    }
+  }
+
+  .btn-transparent,
+  .btn-transparent:hover{
+    background-color: transparent;
+  }
+}

@@ -1,0 +1,29 @@
+<div class="header">
+  <div class="pull-left" style="padding: 5px 0 0 5px">
+    <label for={{labelName}} class="control-label" style="text-align: left">{{labelName}}</label>
+  </div>
+  <div class="pull-right" style="">
+    <div class="dropdown pull-right">
+      {{#vertical-optionlist optionlist=optionlist }}
+        <ul class="dropdown-menu">
+          {{#each optionlist as |item|}}
+            <li><a href="javascript:void(0)" {{action 'goToOption' item }}> {{item.label}}</a></li>
+          {{/each}}
+        </ul>
+      {{/vertical-optionlist}}
+    </div>
+  </div>
+</div>
+
+<div class="custom-search-input">
+  <div class="input-group" style="width: 100%">
+    {{input value=filterText class="search-query form-control" placeholder=placeholder}}
+    <span class="input-group-btn ">
+        <button class="btn btn-danger" type="button">
+          <span class=" glyphicon glyphicon-search"></span>
+        </button>
+      </span>
+  </div>
+</div>
+
+{{yield filteredList}}

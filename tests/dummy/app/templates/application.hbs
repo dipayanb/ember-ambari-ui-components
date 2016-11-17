@@ -1,0 +1,39 @@
+<div style="padding: 15px 0; background-color: #E2E2E1; color: #000">
+  <h3 style="padding: 0 15px;">Ambari EmberJS Components</h3>
+</div>
+<div class="container-fluid">
+
+  <div class="col-md-3">
+    <h5>vertical-optionlist</h5>
+    <div  style="height:200px; padding:5px 5px 0 0;margin: 20px 0; border: 1px solid #DDD;">
+    {{#vertical-optionlist optionlist=optionlist }}
+      <ul class="dropdown-menu">
+        {{#each optionlist as |item|}}
+          <li><a href="javascript:void(0)" {{action 'goToOption' item }}> {{item.label}}</a></li>
+        {{/each}}
+      </ul>
+    {{/vertical-optionlist}}
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <h5>list-filter</h5>
+    {{#list-filter
+    labelName="TABLES"
+    placeholder="Search Table"
+    filterFunction=filterByTableName
+    optionlist=optionlist
+    createTable="createTable"
+    createView="createView"
+    modelList=model as |filteredList|}}
+      <ul class="list-group" style="margin: 0; padding: 0">
+        {{#each filteredList as |table|}}
+          <li {{action "openTable" table.id }} >
+            <a href="#" class="list-group-item">{{ table.attributes.name }}</a>
+          </li>
+        {{/each}}
+      </ul>
+    {{/list-filter}}
+  </div>
+
+</div>
